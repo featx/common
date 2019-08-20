@@ -1,0 +1,10 @@
+build
+out
+dist
+dest
+.gradle
+*.iml
+*.class
+.idea
+.sublime
+.atom
