@@ -13,13 +13,13 @@ class BaseExceptionHandler {
     //    @ResponseStatus(HttpStatus.BAD_REQUEST)
     //    @ExceptionHandler({MethodArgumentNotValidException.class, ConstraintViolationException.class,
     //            HttpRequestMethodNotSupportedException.class, IllegalStateException.class})
-    fun <T> handleConstraintViolationException(e: Exception): BaseResponse<T> {
+    BaseResponse<Object> handleConstraintViolationException(Exception e) {
         return BaseResponse.occur(BusinessError.PARAMETER_TYPE)
     }
 
     //    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     //    @ExceptionHandler(value = BusinessException.class)
-    fun <T> handleInvalidUser(e: BusinessException): BaseResponse<Any?> {
+    BaseResponse<Object> handleInvalidUser(BusinessException e) {
         return BaseResponse.occur(e.businessError, e.extra)
     }
 
