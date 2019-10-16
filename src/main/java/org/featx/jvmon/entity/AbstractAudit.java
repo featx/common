@@ -1,7 +1,8 @@
 package org.featx.jvmon.entity;
 
-import lombok.Data
-import lombok.EqualsAndHashCode
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * @author Excepts
  * @since 2019/10/15 0:34
@@ -11,8 +12,8 @@ import lombok.EqualsAndHashCode
 @EqualsAndHashCode(callSuper = true)
 abstract class AbstractAudit<I> extends AbstractUpdate<I> implements Audit<I> {
 
-    private String createdBy
+    private String createdBy;
 
-    private String updatedBy
+    private String updatedBy;
 
 }
