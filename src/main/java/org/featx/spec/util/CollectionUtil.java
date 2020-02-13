@@ -1,13 +1,25 @@
 package org.featx.spec.util;
 
-import com.google.common.util.concurrent.RateLimiter;
+import java.util.Collection;
+import java.util.Optional;
 
 /**
  * @author Excepts
- * @since 2019/12/30 16:33
+ * @since 2019/11/3 14:11
  */
 public class CollectionUtil {
-    public static void main(String[] args) {
-        RateLimiter.create(1000);
+
+    private CollectionUtil () {
+
+    }
+
+    public static boolean isEmpty(Collection<?> collection) {
+        return Optional.ofNullable(collection)
+                .map(Collection::isEmpty)
+                .orElse(true);
+    }
+
+    public static boolean isNotEmpty(Collection<?> collection) {
+        return !isEmpty(collection);
     }
 }

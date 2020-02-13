@@ -1,13 +1,13 @@
 package org.featx.spec.model;
 
+import org.featx.spec.constant.ErrorCode;
+import org.featx.spec.enums.BusinessError;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.featx.spec.exception.BusinessError;
-import org.featx.spec.exception.ErrorCode;
 
 /**
  * @author Excepts
- * @since 2019/10/12 10:03
+ * @since 2019/10/27 10:03
  */
 @Data
 @NoArgsConstructor
@@ -24,16 +24,24 @@ public class BaseResponse<R> {
      * While no error, code = 0, the required response data structure.
      * While error, some other tips, guide data structure.
      */
-    private R result;
+    private R data;
 
-    private BaseResponse(int code, String message, R result) {
+    private BaseResponse(int code, String message, R data) {
         this.code = code;
         this.message = message;
-        this.result = result;
+        this.data = data;
     }
 
     public static <R> BaseResponse<R> succeeded(R result) {
         return new BaseResponse<>(ErrorCode.NO_ERROR, null, result);
+    }
+
+    public static <R> BaseResponse<R> with(R result) {
+        return new BaseResponse<>(ErrorCode.NO_ERROR, null, result);
+    }
+
+    public static <R> BaseResponse<R> succeeded() {
+        return new BaseResponse<>(ErrorCode.NO_ERROR, null, null);
     }
 
     public static <R> BaseResponse<R> occur(BusinessError businessError) {
@@ -42,5 +50,9 @@ public class BaseResponse<R> {
 
     public static <R> BaseResponse<R> occur(BusinessError businessError, R extra) {
         return new BaseResponse<>(businessError.getCode(), businessError.getMessage(), extra);
+    }
+
+    public static <R> BaseResponse<R> occur(int code, String message, R extra) {
+        return new BaseResponse<>(code, message, extra);
     }
 }

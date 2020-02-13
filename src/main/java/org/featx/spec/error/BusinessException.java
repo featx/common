@@ -1,7 +1,8 @@
-package org.featx.spec.exception;
+package org.featx.spec.error;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.featx.spec.enums.BusinessError;
 
 /**
  * @author Excepts

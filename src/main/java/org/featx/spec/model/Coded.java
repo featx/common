@@ -2,11 +2,12 @@ package org.featx.spec.model;
 
 /**
  * @author Excepts
- * @since 2019/12/20 19:45
+ * @since 2019/12/31 11:23
  */
 public interface Coded {
     /**
-     * @return The business code of some domain
+     * get the business code
+     * @return the business code
      */
     String getCode();
 }

@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 /**
  * @author Excepts
- * @since 2019/10/30 17:31
+ * @since 2020/1/2 23:06
  */
-public interface Unified extends Serializable {
+
+public interface Selectable extends Serializable {
     /**
      * Get code of this object
      * @return The code of this object
@@ -21,5 +22,5 @@ public interface Unified extends Serializable {
      * Get type of this object
      * @return The type of this object
      */
-    Integer getType();
+    String getDescription();
 }

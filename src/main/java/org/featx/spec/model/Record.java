@@ -3,14 +3,14 @@ package org.featx.spec.model;
 import java.time.LocalDateTime;
 
 /**
+ * Some log-type data which would not be updated, such as event.
  * @author Excepts
- * @since 2019/12/20 19:49
+ * @since 2019/10/27 17:01
  */
-public interface Record {
+public interface Record<I> extends Identifiable<I> {
     /**
-     * Date time of this/current record
-     *
-     * @return LocalDateTime The date-time of this record
+     * Get the data time of this record
+     * @return the record's datetime
      */
     LocalDateTime getCreatedAt();
 }

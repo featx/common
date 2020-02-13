@@ -1,4 +1,4 @@
-package org.featx.spec.exception;
+package org.featx.spec.error;
 
 /**
  * @author Excepts
