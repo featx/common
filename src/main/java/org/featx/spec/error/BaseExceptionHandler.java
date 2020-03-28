@@ -9,17 +9,15 @@ import org.featx.spec.model.BaseResponse;
  */
 public class BaseExceptionHandler {
 
-    //    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    //    @ExceptionHandler({MethodArgumentNotValidException.class, ConstraintViolationException.class,
-    //            HttpRequestMethodNotSupportedException.class, IllegalStateException.class})
-    <R> BaseResponse<R> handleConstraintViolationException(Exception e) {
+    protected <R> BaseResponse<R> handleConstraintViolationException(Exception e) {
         return BaseResponse.occur(BusinessError.PARAMETER_TYPE);
     }
 
-    //    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    //    @ExceptionHandler(value = BusinessException.class)
-    BaseResponse<Object> handleInvalidUser(BusinessException e) {
+    protected BaseResponse<Object> handleInvalidUser(BusinessException e) {
         return BaseResponse.occur(e.getBusinessError(), e.getExtra());
     }
 
+    protected BaseResponse<Object> handleBusinessException(BusinessException e) {
+        return BaseResponse.occur(e.getBusinessError(), e.getExtra());
+    }
 }
