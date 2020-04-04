@@ -10,6 +10,7 @@ dist
 dest
 
 .gradle
-gradlew.bat
-gradlew
 gradle
+gradlew
+gradlew.bat
+settings.gradle
