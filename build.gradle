@@ -75,18 +75,18 @@ compileScala {
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_14
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_13
 }
 
 compileTestKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_14
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_13
 }
 
-task sourceJar(type: Jar) {
+task sourceJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
-task javadocJar(type: Jar) {
+task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
@@ -96,11 +96,11 @@ publishing {
             from components.java
 
             artifact sourceJar {
-                classifier "src"
+                classifier "sources"
             }
 
             artifact javadocJar {
-                classifier "doc"
+                classifier "javadoc"
             }
         }
     }
