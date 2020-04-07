@@ -18,10 +18,10 @@ ext {
 }
 
 group 'org.featx.spec'
-version '1.0.0'
+version '1.0.1'
 
-sourceCompatibility = JavaVersion.VERSION_14
-targetCompatibility = JavaVersion.VERSION_14
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
@@ -58,6 +58,7 @@ dependencies {
     testCompile "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testCompile "org.scalactic:scalactic_2.13:${scalacticVersion}"
     testCompile "org.scalatest:scalatest_2.13:${scalacticVersion}"
+    testCompile "io.mockk:mockk:1.9"
     testCompile 'org.jetbrains.kotlin:kotlin-test-junit5'
     testImplementation "org.jetbrains.kotlin:kotlin-test-js"
 }
@@ -67,19 +68,21 @@ compileJava {
 }
 
 compileGroovy {
+    targetCompatibility = JavaVersion.VERSION_11
     options.encoding = "UTF-8"
 }
 
 compileScala {
+    targetCompatibility = JavaVersion.VERSION_11
     options.encoding = "UTF-8"
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_13
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11
 }
 
 compileTestKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_13
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11
 }
 
 task sourceJar(type: Jar, dependsOn: classes) {
