@@ -4,11 +4,10 @@ import java.time.LocalDateTime;
 
 /**
  * Some domain data structure which would be update
- * @author Excepts
- * @param <I> The id type template
+ * @author ExceptsEE
  * @since 2019/10/27 17:02
  */
-public interface Update<I> extends Record<I> {
+public interface Update extends Record {
     /**
      * Get update  date time
      * @return the date time

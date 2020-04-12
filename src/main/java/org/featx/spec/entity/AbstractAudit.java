@@ -13,7 +13,7 @@ import org.featx.spec.model.Audit;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public abstract class AbstractAudit<I> extends AbstractUpdate<I> implements Audit<I> {
+public abstract class AbstractAudit<I> extends AbstractUpdate<I> implements Audit {
 
     private static final long serialVersionUID = -3410778135804720166L;
 

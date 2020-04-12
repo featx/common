@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public abstract class AbstractUpdate<I> extends AbstractRecord<I> implements Update<I> {
+public abstract class AbstractUpdate<I> extends AbstractRecord<I> implements Update {
 
     private static final long serialVersionUID = 2738637486289272752L;
 

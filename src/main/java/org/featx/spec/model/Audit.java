@@ -5,10 +5,9 @@ import java.time.LocalDateTime;
 /**
  * Some domain data structure which would be update
  * @author Excepts
- * @param <I> The id type template
  * @since 2019/10/27 17:02
  */
-public interface Audit<I> extends Update<I> {
+public interface Audit extends Update {
     /**
      * get the creator user code
      * @return the creator user code
@@ -20,8 +19,8 @@ public interface Audit<I> extends Update<I> {
      */
     String getUpdatedBy();
 
-    default Audit<I> audit() {
-        return new Audit<>() {
+    default Audit audit() {
+        return new Audit() {
             @Override
             public String getCreatedBy() {
                 return Audit.this.getCreatedBy();
@@ -40,11 +39,6 @@ public interface Audit<I> extends Update<I> {
             @Override
             public LocalDateTime getCreatedAt() {
                 return Audit.this.getCreatedAt();
-            }
-
-            @Override
-            public I getId() {
-                return Audit.this.getId();
             }
         };
     }

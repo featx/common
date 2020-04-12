@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * @author Excepts
  * @since 2019/10/27 17:01
  */
-public interface Record<I> extends Identifiable<I> {
+public interface Record {
     /**
      * Get the data time of this record
      * @return the record's datetime
