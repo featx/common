@@ -1,26 +1,21 @@
 package org.featx.spec.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.featx.spec.enums.QueryDirection;
 
 import java.io.Serializable;
 
 /**
  * @author Excepts
- * @since 2019/12/31 13:50
+ * @since 2020/4/11 23:38
  */
 @Data
-@NoArgsConstructor
-public class FlowRequest implements Serializable {
+public class RollRequest implements Serializable {
 
-    private static final long serialVersionUID = -722145501939109453L;
+    private static final long serialVersionUID = 4292759818056630348L;
 
     private String cursor;
 
-    /**
-     * Whether less than cursor or not, true for less than cursor , and false for not.
-     */
     private QueryDirection direction;
 
     public void setDirection(int direction) {

@@ -17,6 +17,10 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class FlowResponse<R> extends ListResponse<R> {
 
+    private static final long serialVersionUID = -94683816577448812L;
+
+    private Long total;
+
     private String previous;
 
     private String next;
@@ -40,6 +44,11 @@ public class FlowResponse<R> extends ListResponse<R> {
     public FlowResponse<R> cursor(String previous, String next) {
         this.previous = previous;
         this.next = next;
+        return this;
+    }
+
+    public FlowResponse<R> total(Long total) {
+        this.total = total;
         return this;
     }
 

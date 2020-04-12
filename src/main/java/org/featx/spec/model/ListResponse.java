@@ -16,6 +16,8 @@ import java.util.Optional;
 @EqualsAndHashCode(callSuper = true)
 public class ListResponse<R> extends BaseResponse<List<R>> {
 
+    private static final long serialVersionUID = -1370862431440698540L;
+
     private ListResponse(int code, String message, List<R> result) {
         this.setCode(code);
         this.setMessage(message);

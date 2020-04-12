@@ -5,13 +5,17 @@ import org.featx.spec.enums.BusinessError;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @author Excepts
  * @since 2019/10/27 10:03
  */
 @Data
 @NoArgsConstructor
-public class BaseResponse<R> {
+public class BaseResponse<R> implements Serializable {
+
+    private static final long serialVersionUID = 4996046788449418400L;
     /**
      * Error code in integer , which 0 express no-error
      */

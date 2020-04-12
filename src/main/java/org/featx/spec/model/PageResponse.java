@@ -18,7 +18,9 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class PageResponse<R> extends ListResponse<R> {
 
-    private Integer total;
+    private static final long serialVersionUID = -2851146606484343597L;
+
+    private Long total;
 
     private Integer page;
 
@@ -28,7 +30,7 @@ public class PageResponse<R> extends ListResponse<R> {
         this.setData(result);
     }
 
-    public PageResponse<R> total(Integer total) {
+    public PageResponse<R> total(Long total) {
         this.total = total;
         return this;
     }

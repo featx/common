@@ -22,4 +22,23 @@ public interface Unified extends Serializable {
      * @return The type of this object
      */
     Integer getType();
+
+    default Unified unify() {
+        return new Unified() {
+            @Override
+            public String getCode() {
+                return Unified.this.getCode();
+            }
+
+            @Override
+            public String getName() {
+                return Unified.this.getName();
+            }
+
+            @Override
+            public Integer getType() {
+                return Unified.this.getType();
+            }
+        };
+    }
 }

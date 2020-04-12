@@ -3,6 +3,7 @@ package org.featx.spec.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.featx.spec.model.Unified;
 
 /**
  * @author Excepts
@@ -12,7 +13,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public abstract class AbstractUnified<I> extends AbstractUpdate<I> {
+public abstract class AbstractUnified<I> extends AbstractUpdate<I> implements Unified {
 
     private static final long serialVersionUID = -4454709709156471875L;
 
