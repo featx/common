@@ -8,12 +8,12 @@ open class SnowflakeIdWorker(epoch: Long, workerId: Long, dataCenterId: Long) : 
     /**
      * Machine instance id bits length
      */
-    private val workerIdBits = 5
+    private val workerIdBits = 6
 
     /**
      * Data center id bits length
      */
-    private val dataCenterIdBits = 5
+    private val dataCenterIdBits = 4
 
     /**
      * Bits length of The sequence in the same second
