@@ -34,22 +34,26 @@ repositories {
 }
 
 dependencies {
-    compileOnly "org.projectlombok:lombok:${lombokVersion}"
-    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-    compileOnly "org.slf4j:slf4j-api:${slf4jVersion}"
-    compileOnly "javax.servlet:javax.servlet-api:${servletVersion}"
-    implementation "org.codehaus.groovy:groovy-all:${groovyVersion}"
-    implementation "com.google.guava:guava:${guavaVersion}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
-    implementation "org.scala-lang:scala-library:${scalaVersion}"
-    testCompile "org.junit.jupiter:junit-jupiter:${junitVersion}"
-    testCompile "org.scalactic:scalactic_2.13:${scalacticVersion}"
-    testCompile "org.scalatest:scalatest_2.13:${scalacticVersion}"
-    testCompile "io.mockk:mockk:1.9"
-    testCompile 'org.jetbrains.kotlin:kotlin-test-junit5'
-    testImplementation "org.jetbrains.kotlin:kotlin-test-js"
+    /*Compile Time*/
+    compileOnly("javax.servlet:javax.servlet-api:${servletVersion}")
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+    /*Common Runtime*/
+    implementation("com.google.guava:guava:${guavaVersion}")
+    implementation("org.slf4j:slf4j-api:${slf4jVersion}")//TODO compile Only?
+    /*JVM language Runtime*/
+    implementation("org.codehaus.groovy:groovy:${groovyVersion}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-js")
+    implementation("org.scala-lang:scala-library:${scalaVersion}")
+    /*Test*/
+    testCompile("org.junit.jupiter:junit-jupiter:${junitVersion}")
+    testCompile("org.scalactic:scalactic_2.13:${scalacticVersion}")
+    testCompile("org.scalatest:scalatest_2.13:${scalacticVersion}")
+    testCompile("io.mockk:mockk:${mockkVersion}")
+    testCompile("org.jetbrains.kotlin:kotlin-test-junit5")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-js")
 }
 
 compileJava {
