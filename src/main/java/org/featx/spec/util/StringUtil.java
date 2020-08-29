@@ -1,9 +1,9 @@
 package org.featx.spec.util;
 
-import java.util.Collection;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @author Excepts
@@ -23,6 +23,12 @@ public class StringUtil {
         return !isEmpty(cs);
     }
 
+    public static List<String> dropEmpty(final List<String> strings) {
+        return Optional.ofNullable(strings).filter(list -> !list.isEmpty())
+                .map(list -> list.stream().filter(StringUtil::isNotEmpty).collect(Collectors.toList()))
+                .orElseGet(ArrayList::new);
+    }
+
     public static boolean isBlank(CharSequence cs) {
         int strLen;
         if (cs == null || (strLen = cs.length()) == 0) {
@@ -38,6 +44,12 @@ public class StringUtil {
 
     public static boolean isNotBlank(final CharSequence cs) {
         return !isBlank(cs);
+    }
+
+    public static List<String> dropBlank(final List<String> strings) {
+        return Optional.ofNullable(strings).filter(list -> !list.isEmpty())
+                .map(list -> list.stream().filter(StringUtil::isNotBlank).collect(Collectors.toList()))
+                .orElseGet(ArrayList::new);
     }
 
     public static String empty() {
