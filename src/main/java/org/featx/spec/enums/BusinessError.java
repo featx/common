@@ -1,14 +1,16 @@
 package org.featx.spec.enums;
 
-import org.featx.spec.constant.ErrorCode;
 import lombok.Getter;
+import org.featx.spec.constant.ErrorCode;
+
+import java.util.Arrays;
 
 /**
  * @author Excepts
  * @since 2019/10/27 11:20
  */
 @Getter
-public enum BusinessError {
+public enum BusinessError implements BaseEnum {
     /**
      * Parameter lost
      */
@@ -56,12 +58,18 @@ public enum BusinessError {
 
 
     ;
-    private int code;
+    private final int code;
 
-    private String message;
+    private final String message;
 
     BusinessError(int code, String message) {
         this.code = code;
         this.message = message;
+    }
+
+    public static BusinessError of(int code) {
+        return Arrays.stream(values())
+                .filter(businessError -> businessError.equals(code)).findFirst()
+                .orElse(null);
     }
 }

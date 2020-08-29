@@ -14,10 +14,10 @@ public class BaseExceptionHandler {
     }
 
     protected BaseResponse<Object> handleInvalidUser(BusinessException e) {
-        return BaseResponse.occur(e.getBusinessError(), e.getExtra());
+        return BaseResponse.occur(e.getCode(), e.getMessage(), e.getExtra());
     }
 
     protected BaseResponse<Object> handleBusinessException(BusinessException e) {
-        return BaseResponse.occur(e.getBusinessError(), e.getExtra());
+        return BaseResponse.occur(e.getCode(), e.getMessage(), e.getExtra());
     }
 }
