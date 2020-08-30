@@ -23,15 +23,15 @@ public class StringUtil {
         return !isEmpty(cs);
     }
 
-    public static boolean isAnyEmpty(final Collection<? extends CharSequence> sequences) {
-        return Optional.ofNullable(sequences).filter(list -> !list.isEmpty())
-                .map(list -> list.stream().anyMatch(StringUtil::isEmpty))
+    public static boolean isAnyEmpty(final CharSequence... sequences) {
+        return Optional.ofNullable(sequences).filter(array -> array.length > 0)
+                .map(array -> Arrays.stream(array).anyMatch(StringUtil::isEmpty))
                 .orElse(true);
     }
 
-    public static boolean isAllEmpty(final Collection<? extends CharSequence> sequences) {
-        return Optional.ofNullable(sequences).filter(list -> !list.isEmpty())
-                .map(list -> list.stream().allMatch(StringUtil::isEmpty))
+    public static boolean isAllEmpty(final CharSequence... sequences) {
+        return Optional.ofNullable(sequences).filter(array -> array.length > 0)
+                .map(array -> Arrays.stream(array).allMatch(StringUtil::isEmpty))
                 .orElse(true);
     }
 
@@ -58,15 +58,15 @@ public class StringUtil {
         return !isBlank(cs);
     }
 
-    public static boolean isAnyBlank(final Collection<? extends CharSequence> sequences) {
-        return Optional.ofNullable(sequences).filter(list -> !list.isEmpty())
-                .map(list -> list.stream().anyMatch(StringUtil::isBlank))
+    public static boolean isAnyBlank(final CharSequence... sequences) {
+        return Optional.ofNullable(sequences).filter(array -> array.length > 0)
+                .map(array -> Arrays.stream(array).anyMatch(StringUtil::isBlank))
                 .orElse(true);
     }
 
-    public static boolean isAllBlank(final Collection<? extends CharSequence> sequences) {
-        return Optional.ofNullable(sequences).filter(list -> !list.isEmpty())
-                .map(list -> list.stream().allMatch(StringUtil::isBlank))
+    public static boolean isAllBlank(final CharSequence... sequences) {
+        return Optional.ofNullable(sequences).filter(array -> array.length > 0)
+                .map(array -> Arrays.stream(array).allMatch(StringUtil::isBlank))
                 .orElse(true);
     }
 
