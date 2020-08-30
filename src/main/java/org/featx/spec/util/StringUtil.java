@@ -23,6 +23,18 @@ public class StringUtil {
         return !isEmpty(cs);
     }
 
+    public static boolean isAnyEmpty(final Collection<? extends CharSequence> sequences) {
+        return Optional.ofNullable(sequences).filter(list -> !list.isEmpty())
+                .map(list -> list.stream().anyMatch(StringUtil::isEmpty))
+                .orElse(true);
+    }
+
+    public static boolean isAllEmpty(final Collection<? extends CharSequence> sequences) {
+        return Optional.ofNullable(sequences).filter(list -> !list.isEmpty())
+                .map(list -> list.stream().allMatch(StringUtil::isEmpty))
+                .orElse(true);
+    }
+
     public static List<String> dropEmpty(final List<String> strings) {
         return Optional.ofNullable(strings).filter(list -> !list.isEmpty())
                 .map(list -> list.stream().filter(StringUtil::isNotEmpty).collect(Collectors.toList()))
@@ -44,6 +56,18 @@ public class StringUtil {
 
     public static boolean isNotBlank(final CharSequence cs) {
         return !isBlank(cs);
+    }
+
+    public static boolean isAnyBlank(final Collection<? extends CharSequence> sequences) {
+        return Optional.ofNullable(sequences).filter(list -> !list.isEmpty())
+                .map(list -> list.stream().anyMatch(StringUtil::isBlank))
+                .orElse(true);
+    }
+
+    public static boolean isAllBlank(final Collection<? extends CharSequence> sequences) {
+        return Optional.ofNullable(sequences).filter(list -> !list.isEmpty())
+                .map(list -> list.stream().allMatch(StringUtil::isBlank))
+                .orElse(true);
     }
 
     public static List<String> dropBlank(final List<String> strings) {
