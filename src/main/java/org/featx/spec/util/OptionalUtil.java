@@ -26,6 +26,6 @@ public class OptionalUtil {
     }
 
     public static <O> boolean nullFalse(O o, Function<? super O, Boolean> function) {
-        return nullDefault(o, function, true);
+        return nullDefault(o, function, false);
     }
 }
