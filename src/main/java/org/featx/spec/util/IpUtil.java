@@ -38,6 +38,7 @@ public class IpUtil {
                     } catch (UnknownHostException e) {
                         log.error("log error", e);
                     }
+                    assert inet != null;
                     ipAddress = inet.getHostAddress();
                 }
             }

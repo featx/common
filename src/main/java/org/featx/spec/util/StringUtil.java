@@ -144,9 +144,7 @@ public class StringUtil {
 
         int lack = length - g.length();
         if (lack >= 0) {
-            for (int i = 0; i < lack; i++) {
-                buffer.append(isLetter ? 'x' : '0');
-            }
+            buffer.append(String.valueOf(isLetter ? 'x' : '0').repeat(lack));
             buffer.append(g);
         } else {
             byte[] data = g.getBytes();

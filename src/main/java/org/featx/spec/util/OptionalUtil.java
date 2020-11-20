@@ -9,6 +9,7 @@ import java.util.function.Supplier;
  * @since 2020/8/30 13:47
  */
 public class OptionalUtil {
+
     private OptionalUtil() {
 
     }
