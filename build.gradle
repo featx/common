@@ -9,11 +9,11 @@ plugins {
 group 'org.featx.spec'
 version '1.0.1-SNAPSHOT'
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_15
+targetCompatibility = JavaVersion.VERSION_15
 
 repositories {
-    mavenCentral()
+//    mavenCentral()
     maven {
         url 'https://maven.aliyun.com/repository/public'
     }
@@ -61,21 +61,21 @@ compileJava {
 }
 
 compileGroovy {
-    targetCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_15
     options.encoding = "UTF-8"
 }
 
 compileScala {
-    targetCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_15
     options.encoding = "UTF-8"
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_11
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_15
 }
 
 compileTestKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_11
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_15
 }
 
 task sourceJar(type: Jar, dependsOn: classes) {

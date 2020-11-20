@@ -51,6 +51,4 @@ public class ErrorCode {
      * RPC error.
      */
     public static final Integer SERVER_REMOTE_PROCEDURE_CALL = 5000001;
-
-
 }
