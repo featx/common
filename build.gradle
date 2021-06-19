@@ -47,7 +47,7 @@ dependencies {
     testImplementation("org.scalatest:scalatest_2.13:${scalacticVersion}")
     testImplementation("io.mockk:mockk:${mockkVersion}")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-js")
+//    testImplementation("org.jetbrains.kotlin:kotlin-test-js")
 }
 
 tasks.withType(JavaCompile) {
