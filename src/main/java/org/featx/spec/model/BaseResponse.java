@@ -36,6 +36,11 @@ public class BaseResponse<R> implements Serializable {
         this.data = data;
     }
 
+    @SuppressWarnings("unchecked")
+    public <T> BaseResponse<T> of(Class<T> returnType) {
+        return (BaseResponse<T>) this;
+    }
+
     public static <R> BaseResponse<R> succeeded(R result) {
         return new BaseResponse<>(ErrorCode.NO_ERROR, null, result);
     }
