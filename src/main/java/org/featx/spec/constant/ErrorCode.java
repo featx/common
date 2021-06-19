@@ -5,7 +5,9 @@ package org.featx.spec.constant;
  * @since 2019/10/27 11:48
  */
 public class ErrorCode {
-
+    /**
+     * No Error
+     */
     public static final Integer NO_ERROR = 0;
     /**
      * Lost Parameter

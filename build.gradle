@@ -1,34 +1,28 @@
 plugins {
-    id 'groovy'
-    id 'java'
-    id 'scala'
-    id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}"
-    id 'maven-publish'
+    id("groovy")
+    id("java")
+    id("scala")
+    id("org.jetbrains.kotlin.jvm") version "${kotlinVersion}"
+    id("maven-publish")
 }
 
-group 'org.featx.spec'
-version '1.0.1-SNAPSHOT'
-
-sourceCompatibility = JavaVersion.VERSION_15
-targetCompatibility = JavaVersion.VERSION_15
+group "org.featx.spec"
+version "1.0.1-SNAPSHOT"
 
 repositories {
-//    mavenCentral()
+    mavenCentral()
     maven {
-        url 'https://maven.aliyun.com/repository/public'
-    }
-    maven {
-        url 'https://repo.rdc.aliyun.com/repository/67417-release-5dYQ7a/'
+        url = uri("https://packages.aliyun.com/maven/repository/2010689-release-56y7uo")
         credentials {
-            username "${MVN_USERNAME}"
-            password "${MVN_PASSWORD}"
+            username = "${MVN_USERNAME}"
+            password = "${MVN_PASSWORD}"
         }
     }
     maven {
-        url 'https://repo.rdc.aliyun.com/repository/67417-snapshot-6tKIEl/'
+        url = uri("https://packages.aliyun.com/maven/repository/2010689-snapshot-bcJ57J/")
         credentials {
-            username "${MVN_USERNAME}"
-            password "${MVN_PASSWORD}"
+            username = "${MVN_USERNAME}"
+            password = "${MVN_PASSWORD}"
         }
     }
 }
@@ -48,34 +42,34 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-js")
     implementation("org.scala-lang:scala-library:${scalaVersion}")
     /*Test*/
-    testCompile("org.junit.jupiter:junit-jupiter:${junitVersion}")
-    testCompile("org.scalactic:scalactic_2.13:${scalacticVersion}")
-    testCompile("org.scalatest:scalatest_2.13:${scalacticVersion}")
-    testCompile("io.mockk:mockk:${mockkVersion}")
-    testCompile("org.jetbrains.kotlin:kotlin-test-junit5")
+    testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
+    testImplementation("org.scalactic:scalactic_2.13:${scalacticVersion}")
+    testImplementation("org.scalatest:scalatest_2.13:${scalacticVersion}")
+    testImplementation("io.mockk:mockk:${mockkVersion}")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.jetbrains.kotlin:kotlin-test-js")
 }
 
-compileJava {
+tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
+    sourceCompatibility = "${javaVersion}"
+    targetCompatibility = "${javaVersion}"
 }
 
-compileGroovy {
+tasks.withType(GroovyCompile) {
+    options.encoding = "UTF-8"
+    sourceCompatibility = JavaVersion.VERSION_15
     targetCompatibility = JavaVersion.VERSION_15
+}
+
+tasks.withType(ScalaCompile) {
     options.encoding = "UTF-8"
+    sourceCompatibility = "${javaVersion}"
+    targetCompatibility = "${javaVersion}"
 }
 
-compileScala {
-    targetCompatibility = JavaVersion.VERSION_15
-    options.encoding = "UTF-8"
-}
-
-compileKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_15
-}
-
-compileTestKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_15
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+    kotlinOptions.jvmTarget = "${javaVersion}"
 }
 
 task sourceJar(type: Jar, dependsOn: classes) {
@@ -103,9 +97,9 @@ publishing {
 
     repositories {
         maven {
-            url = "https://repo.rdc.aliyun.com/repository/67417-release-5dYQ7a/"
+            url = uri("https://packages.aliyun.com/maven/repository/2010689-release-56y7uo")
             if (project.version.endsWith("SNAPSHOT")) {
-                url = "https://repo.rdc.aliyun.com/repository/67417-snapshot-6tKIEl/"
+                url = uri("https://packages.aliyun.com/maven/repository/2010689-snapshot-bcJ57J/")
             }
             credentials {
                 username "${MVN_USERNAME}"
