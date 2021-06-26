@@ -27,7 +27,7 @@ public class RollResponse<R> extends ListResponse<R> {
     private RollResponse(int code, String message, List<R> result) {
         this.setCode(code);
         this.setMessage(message);
-        this.setData(result);
+        this.setResult(result);
     }
 
     public RollResponse<R> previous(String previous) {

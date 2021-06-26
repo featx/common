@@ -27,7 +27,7 @@ public class PageResponse<R> extends ListResponse<R> {
     private PageResponse(int code, String message, List<R> result) {
         this.setCode(code);
         this.setMessage(message);
-        this.setData(result);
+        this.setResult(result);
     }
 
     public PageResponse<R> total(Long total) {

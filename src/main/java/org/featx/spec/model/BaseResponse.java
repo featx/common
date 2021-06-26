@@ -28,12 +28,12 @@ public class BaseResponse<R> implements Serializable {
      * While no error, code = 0, the required response data structure.
      * While error, some other tips, guide data structure.
      */
-    private R data;
+    private R result;
 
-    private BaseResponse(int code, String message, R data) {
+    private BaseResponse(int code, String message, R result) {
         this.code = code;
         this.message = message;
-        this.data = data;
+        this.result = result;
     }
 
     @SuppressWarnings("unchecked")

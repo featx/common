@@ -28,7 +28,7 @@ public class FlowResponse<R> extends ListResponse<R> {
     private FlowResponse(int code, String message, List<R> result) {
         this.setCode(code);
         this.setMessage(message);
-        this.setData(result);
+        this.setResult(result);
     }
 
     public FlowResponse<R> previous(String previous) {
