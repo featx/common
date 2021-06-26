@@ -27,7 +27,7 @@ public class RollResponse<R> extends ListResponse<R> {
     private RollResponse(int code, String message, List<R> result) {
         this.setCode(code);
         this.setMessage(message);
-        this.setData(result);
+        this.setResult(result);
     }
 
     public RollResponse<R> previous(String previous) {
@@ -49,6 +49,11 @@ public class RollResponse<R> extends ListResponse<R> {
     public RollResponse<R> total(Long total) {
         this.total = total;
         return this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> RollResponse<T> ofList(Class<T> returnType) {
+        return (RollResponse<T>) this;
     }
 
     public static <R> RollResponse<R> succeeded(List<R> result) {

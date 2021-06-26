@@ -102,8 +102,8 @@ publishing {
                 url = uri("https://packages.aliyun.com/maven/repository/2010689-snapshot-bcJ57J/")
             }
             credentials {
-                username "${MVN_USERNAME}"
-                password "${MVN_PASSWORD}"
+                username "${MVN_USERNAME}" ?: System.getenv("MAVEN_USERNAME")
+                password "${MVN_PASSWORD}" ?: System.getenv("MAVEN_PASSWORD")
             }
         }
     }

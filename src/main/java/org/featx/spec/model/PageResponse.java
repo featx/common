@@ -27,7 +27,7 @@ public class PageResponse<R> extends ListResponse<R> {
     private PageResponse(int code, String message, List<R> result) {
         this.setCode(code);
         this.setMessage(message);
-        this.setData(result);
+        this.setResult(result);
     }
 
     public PageResponse<R> total(Long total) {
@@ -38,6 +38,11 @@ public class PageResponse<R> extends ListResponse<R> {
     public PageResponse<R> page(Integer page) {
         this.page = page;
         return this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> PageResponse<T> ofList(Class<T> returnType) {
+        return (PageResponse<T>) this;
     }
 
     public static <R> PageResponse<R> succeeded(List<R> result)  {

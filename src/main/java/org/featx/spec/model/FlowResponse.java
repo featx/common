@@ -28,7 +28,7 @@ public class FlowResponse<R> extends ListResponse<R> {
     private FlowResponse(int code, String message, List<R> result) {
         this.setCode(code);
         this.setMessage(message);
-        this.setData(result);
+        this.setResult(result);
     }
 
     public FlowResponse<R> previous(String previous) {
@@ -50,6 +50,11 @@ public class FlowResponse<R> extends ListResponse<R> {
     public FlowResponse<R> total(Long total) {
         this.total = total;
         return this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> FlowResponse<T> ofList(Class<T> returnType) {
+        return (FlowResponse<T>) this;
     }
 
     public static <R> FlowResponse<R> succeeded(List<R> result) {

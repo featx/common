@@ -21,11 +21,16 @@ public class ListResponse<R> extends BaseResponse<List<R>> {
     private ListResponse(int code, String message, List<R> result) {
         this.setCode(code);
         this.setMessage(message);
-        this.setData(result);
+        this.setResult(result);
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> ListResponse<T> ofList(Class<T> returnType) {
+        return (ListResponse<T>) this;
     }
 
     public Integer getSize() {
-        return Optional.ofNullable(getData()).map(List::size).orElse(0);
+        return Optional.ofNullable(getResult()).map(List::size).orElse(0);
     }
 
     public static <R> ListResponse<R> succeeded(List<R> result) {
