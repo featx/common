@@ -40,6 +40,11 @@ public class PageResponse<R> extends ListResponse<R> {
         return this;
     }
 
+    @SuppressWarnings("unchecked")
+    public <T> PageResponse<T> ofList(Class<T> returnType) {
+        return (PageResponse<T>) this;
+    }
+
     public static <R> PageResponse<R> succeeded(List<R> result)  {
         return new PageResponse<>(ErrorCode.NO_ERROR, StringUtil.empty(), result);
     }

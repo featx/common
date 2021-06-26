@@ -51,6 +51,11 @@ public class RollResponse<R> extends ListResponse<R> {
         return this;
     }
 
+    @SuppressWarnings("unchecked")
+    public <T> RollResponse<T> ofList(Class<T> returnType) {
+        return (RollResponse<T>) this;
+    }
+
     public static <R> RollResponse<R> succeeded(List<R> result) {
         return new RollResponse<>(ErrorCode.NO_ERROR, null, result);
     }

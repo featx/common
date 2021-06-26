@@ -24,6 +24,11 @@ public class ListResponse<R> extends BaseResponse<List<R>> {
         this.setResult(result);
     }
 
+    @SuppressWarnings("unchecked")
+    public <T> ListResponse<T> ofList(Class<T> returnType) {
+        return (ListResponse<T>) this;
+    }
+
     public Integer getSize() {
         return Optional.ofNullable(getResult()).map(List::size).orElse(0);
     }

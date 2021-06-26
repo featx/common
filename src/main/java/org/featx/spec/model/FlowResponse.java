@@ -52,6 +52,11 @@ public class FlowResponse<R> extends ListResponse<R> {
         return this;
     }
 
+    @SuppressWarnings("unchecked")
+    public <T> FlowResponse<T> ofList(Class<T> returnType) {
+        return (FlowResponse<T>) this;
+    }
+
     public static <R> FlowResponse<R> succeeded(List<R> result) {
         return new FlowResponse<>(ErrorCode.NO_ERROR, null, result);
     }
